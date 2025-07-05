@@ -121,7 +121,7 @@ group by Region, Product_Sub_Category
 _**Further Analysis**_
 
 ~~~ SQL
-----Total Number of Customers-----They 795 Altogether---
+----Total Number of Customers-----They are 795 Altogether---
 
 Select count (distinct Customer_Name) as [Total Customer base]
 from [KMS Sales Table]
