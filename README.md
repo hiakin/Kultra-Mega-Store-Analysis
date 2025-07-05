@@ -59,10 +59,20 @@ The data was explored to get answers to some questions like:
 
 ### Data Analysis/Insights
 
-~
+~~~
 Select * from [KMS Sales Table]
-~
+~~~
 
+<img width="580" alt="image" src="https://github.com/user-attachments/assets/83561c40-8e2e-4e24-a8f1-52b3243fb14d" />
 
+_**Question 1**_
 
+~~~
+Select Product_Category, sum (Sales) as [Highest Sales]
+from [KMS Sales Table] 
+group by Product_Category
+Order by [Highest Sales] desc
+~~~
+
+<img width="268" alt="image" src="https://github.com/user-attachments/assets/6795cbdb-70a2-4f97-aea4-95b330e881ba" />
 
