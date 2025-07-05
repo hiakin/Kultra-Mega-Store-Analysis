@@ -59,7 +59,7 @@ The data was explored to get answers to some questions like:
 
 ### Data Analysis/Insights
 
-~~~
+~~~ SQL
 Select * from [KMS Sales Table]
 ~~~
 
@@ -67,7 +67,10 @@ Select * from [KMS Sales Table]
 
 _**Question 1**_
 
-~~~
+~~~ SQL
+
+----Product Category with Highest Sales------
+
 Select Product_Category, sum (Sales) as [Highest Sales]
 from [KMS Sales Table] 
 group by Product_Category
@@ -75,4 +78,86 @@ Order by [Highest Sales] desc
 ~~~
 
 <img width="268" alt="image" src="https://github.com/user-attachments/assets/6795cbdb-70a2-4f97-aea4-95b330e881ba" />
+
+_**Question 2a**_
+
+~~~ SQL
+----Top 3 Region in terms of Sales----
+
+Select top 3 Region, sum (Sales) as [Top 3 Region in Sales]
+from [KMS Sales Table]
+group by Region
+Order by [Top 3 Region in Sales] desc
+~~~
+
+<img width="215" alt="image" src="https://github.com/user-attachments/assets/08482d36-7ce7-43fd-a727-935bd4a4c2fe" />
+
+_**Question 2b**_
+
+~~~ SQL
+-----Bottom 3 Region in terms of Sales-----
+
+Select top 3 Region, sum (Sales) as [Bottom 3 Region in Sales]
+from [KMS Sales Table]
+group by Region
+Order by [Bottom 3 Region in Sales] asc
+~~~
+
+<img width="243" alt="image" src="https://github.com/user-attachments/assets/0edfe1d5-adbd-42ba-8c2c-e20e99647908" />
+
+_**Question 3**_
+
+~~~ SQL
+----Total Sales of Appliances in Ontario-------
+
+Select Region, Product_Sub_Category, sum (Sales) as [Total Sales]
+from [KMS Sales Table]
+where Region = 'Ontario' and Product_Sub_Category = 'Appliances'
+group by Region, Product_Sub_Category
+~~~
+
+<img width="247" alt="image" src="https://github.com/user-attachments/assets/e41a9943-74e5-4fc3-9b56-6b8a111096b9" />
+
+_**Further Analysis**_
+
+~~~ SQL
+----Total Number of Customers-----They 795 Altogether---
+
+Select count (distinct Customer_Name) as [Total Customer base]
+from [KMS Sales Table]
+
+----Analysing Total Number of Product-----They are 1263
+
+Select count (distinct Product_Name) as [Total Number of Product]
+from [KMS Sales Table]
+
+----Analysing Total Number of Product Sub Category-----They are 17
+
+Select count (distinct Product_Sub_Category) as [Total Product Sub Category]
+from [KMS Sales Table]
+~~~
+
+~~~ SQL
+----Analysing Top 5 Selling Product Sub Category-----
+
+Select top 5 Product_Sub_Category, sum (Sales) as [Total Sales]
+from [KMS Sales Table]
+group by Product_Sub_Category
+Order by [Total Sales] desc
+~~~
+
+<img width="293" alt="image" src="https://github.com/user-attachments/assets/e92729d8-ec3e-4f84-8ee4-a097813d1124" />
+
+~~~ SQL
+----Bottom 10 Customers Sales Value-----
+
+Select top 10 Customer_Name, sum (Sales) as [Total Sales]
+from [KMS Sales Table]
+group by Customer_Name
+Order by [Total Sales] asc
+~~~
+
+<img width="257" alt="image" src="https://github.com/user-attachments/assets/e392a55c-a443-43c4-be84-32433f83df07" />
+
+
 
